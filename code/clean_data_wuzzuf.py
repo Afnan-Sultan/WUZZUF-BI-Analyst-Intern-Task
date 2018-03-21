@@ -1,10 +1,14 @@
+impoert os
+
+work_dir = os .getcwd()
+
 def remove_columns():
     '''
     This function makes a first round of cleaning by removing any row with distorted values
     '''
     #reading the file and opening another file for wrting
-    infile = open("Wuzzuf_Job_Posts_Sample.csv", encoding="utf8")
-    outfile= open("Wuzzuf_Job_Posts_Sample_cleaned.csv","w", encoding="utf8")
+    infile = open("work_dir/data/Wuzzuf_Job_Posts_Sample.csv", encoding="utf8")
+    outfile= open("work_dir/data/Wuzzuf_Job_Posts_Sample_cleaned.csv","w", encoding="utf8")
     
     #werd values were obtain from running the following command on the job posts file 
         #print(sorted(df.salary_average.value_counts().index.tolist())) after opening the file with pandas package
@@ -42,8 +46,8 @@ def clean_cities():
     '''
     
     #open the cleaned fle resulted from the previous function
-    infile = open("Wuzzuf_Job_Posts_Sample_cleaned.csv", encoding="utf8")
-    outfile=open("cleaned_cities.csv","w",encoding="utf8")
+    infile = open("work_dir/data/Wuzzuf_Job_Posts_Sample_cleaned.csv", encoding="utf8")
+    outfile=open("work_dir/data/cleaned_cities.csv","w",encoding="utf8")
     
     #loop over city column in the cleaned file, and for each city, check the conditions and change it's name if needed.
     for line in infile.readlines():
@@ -82,8 +86,8 @@ def clean_experience():
     This function is used to clean the experience column and unify it's content structure. It also perints addtional two column with minimun and maximum experience year for each job to be used when needed
     '''
     
-    infile = open("Wuzzuf_Job_Posts_Sample_cleaned.csv", encoding="utf8")
-    outfile=open("cleaned_experience.csv","w",encoding="utf8")
+    infile = open("work_dir/data/Wuzzuf_Job_Posts_Sample_cleaned.csv", encoding="utf8")
+    outfile=open("work_dir/data/cleaned_experience.csv","w",encoding="utf8")
 
     #identifying months in letters and number to correct for excells automatc change for some nummber to dates
     months =["Jan", "Feb","Mar", "Apr","May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov","Dec"]
